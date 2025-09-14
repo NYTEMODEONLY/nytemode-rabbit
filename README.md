@@ -95,7 +95,7 @@ Professional QR code generation tool featuring:
 
 1. **Navigate to QR directory:**
    ```bash
-   cd qr/final
+   cd apps/sdk-examples/qr/final
    ```
 
 2. **Serve the application:**
@@ -105,6 +105,33 @@ Professional QR code generation tool featuring:
 
 3. **Access the generator:**
    Open `http://localhost:8001` in your browser.
+
+### Creating Your Own Apps
+
+1. **Use a template:**
+   ```bash
+   # Copy the simple app template
+   cp -r apps/templates/simple-app apps/my-apps/my-first-app
+   cd apps/my-apps/my-first-app
+   ```
+
+2. **Customize your app:**
+   - Edit `index.html` for structure
+   - Modify `css/styles.css` for styling
+   - Update `js/app.js` for functionality
+
+3. **Test locally:**
+   ```bash
+   python -m http.server 8000
+   # Open http://localhost:8000
+   ```
+
+4. **Commit your changes:**
+   ```bash
+   git add .
+   git commit -m "Add my first R1 app"
+   git push
+   ```
 
 ## 🔌 Hardware Integration
 
@@ -188,23 +215,18 @@ const secret = atob(await window.creationStorage.secure.getItem('secret'));
 ### Project Structure
 ```
 creations-sdk/
-├── plugin-demo/           # Main demonstration application
-│   ├── index.html        # SPA with navigation
-│   ├── css/styles.css    # Responsive styles (240x282px optimized)
-│   ├── js/
-│   │   ├── app.js       # Main application logic
-│   │   ├── hardware.js  # Hardware integration
-│   │   ├── data.js      # LLM communication
-│   │   └── speak.js     # Text-to-speech
-│   └── reference/
-│       └── creation-triggers.md  # SDK documentation
-├── qr/                   # QR code generation tool
-│   └── final/           # Production-ready application
-│       ├── index_fixed.html
-│       ├── css/styles.css
-│       └── js/app.js
-├── LICENSE               # MIT license
-└── README.md            # This file
+├── apps/                 # All R1 applications
+│   ├── sdk-examples/     # Official SDK examples and demos
+│   │   ├── plugin-demo/  # Complete hardware integration demo
+│   │   └── qr/          # QR code generator tool
+│   ├── my-apps/         # Your custom R1 applications
+│   │   └── [your-app-name]/
+│   └── templates/       # App templates for quick starts
+│       ├── simple-app/  # Basic R1 app template
+│       └── advanced-app/# Advanced app template
+├── LICENSE              # MIT license
+├── .gitignore          # Git ignore rules
+└── README.md           # This file
 ```
 
 ### Design Constraints
