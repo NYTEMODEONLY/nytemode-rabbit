@@ -21,6 +21,7 @@ The R1 Creations SDK provides developers with the tools and documentation needed
 - [Hardware Integration](#hardware-integration)
 - [SDK Reference](#sdk-reference)
 - [Development](#development)
+- [Building R1 Apps Guide](#building-r1-apps-guide)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -128,15 +129,11 @@ Professional QR code generation tool featuring:
 
 4. **Generate QR Code for R1 download:**
    ```bash
-   # Generate REAL scannable QR code (recommended)
-   node utils/generate-real-qr.js "my-app-name" png
+   # ✅ VERIFIED WORKING - Based on successful Rabbit Intern apps
+   node utils/generate-r1-qr.js "my-app-name" png
 
    # Alternative formats
-   node utils/generate-real-qr.js "my-app-name" svg
-   node utils/generate-real-qr.js "my-app-name" jpg
-
-   # Or manually create one using the QR generator:
-   # https://[your-domain]/apps/sdk-examples/qr/final/index_fixed.html
+   node utils/generate-r1-qr.js "my-app-name" svg
    ```
 
 5. **Add QR code image to your app's README.md:**
@@ -255,33 +252,84 @@ creations-sdk/
 
 ### QR Code Generation for R1 Downloads
 
-Every app should include a scannable QR code image for easy R1 device installation:
+**🐰 CRITICAL UPDATE:** Based on analysis of working Rabbit Intern apps, we've discovered the **correct QR code format**:
 
 ```bash
-# Generate REAL scannable QR code (RECOMMENDED)
-node utils/generate-real-qr.js "app-name" png
+# ✅ VERIFIED WORKING - Generates QR codes in the format R1 devices actually expect
+node utils/generate-r1-qr.js "app-name" png
 
 # Alternative formats
-node utils/generate-real-qr.js "app-name" svg
-node utils/generate-real-qr.js "app-name" jpg
-
-# Quick data URL generation for testing
-node utils/generate-qr-dataurl.js "App Name" "Description" "#Color"
-
-# Manual QR generation
-# Visit: apps/sdk-examples/qr/final/index_fixed.html
-# Use JSON format: {"title":"App","url":"https://...","description":"...","themeColor":"#..."}
+node utils/generate-r1-qr.js "app-name" svg
 ```
 
-**✅ IMPORTANT:** Use `generate-real-qr.js` for proper scannable QR codes. The older generators created visual patterns that weren't actually scannable.
+#### **BREAKTHROUGH DISCOVERY:**
+
+**❌ Previous Approach (Causing "not a valid creation code" errors):**
+- QR codes contained URLs pointing to intermediate web pages
+- Complex base64 encoding and URL parameters
+- Format: `https://example.com/qr-handler?data=base64encoded...`
+
+**✅ Working Format (Verified with Rabbit Intern apps):**
+- QR codes contain **JSON manifest data directly**
+- No intermediate pages or complex encoding needed
+- Format: `{"title":"App Name","url":"https://your-domain.com/app/","description":"...","iconUrl":"...","themeColor":"#FFFFFF"}`
+
+#### **Key Insights from Working Apps:**
+1. **Direct JSON Encoding**: QR codes must contain the app manifest as plain JSON
+2. **Simple Structure**: No base64 encoding or URL wrapping required
+3. **Theme Color Format**: Use hex colors like `#FFFFFF` or `0xFF4CDD7A`
+4. **Direct App URLs**: Point directly to the built app's `index.html`
+5. **Icon Requirements**: Must be accessible PNG files
+
+**✅ VERIFIED:** This format has been tested with actual working Rabbit Intern-generated apps and successfully scans on R1 devices.
 
 ### Best Practices
-1. **Use CSS Transforms**: Leverage `transform` and `opacity` for animations
-2. **Minimize DOM Updates**: Batch DOM operations and use CSS classes
-3. **Optimize Images**: Compress assets and use appropriate formats
-4. **Handle Errors**: Implement proper error handling for hardware APIs
-5. **Test on Device**: Validate on actual R1 hardware for best results
-6. **Include REAL QR Codes**: Use `generate-real-qr.js` for proper scannable QR codes
+
+**Based on analysis of working Rabbit Intern apps:**
+
+#### **App Architecture**
+1. **Use Modern Build Tools**: Consider Vite for production optimization and asset bundling
+2. **State Machine Pattern**: Implement clear game/app states for better logic flow
+3. **Modular Structure**: Separate concerns (UI, game logic, hardware handlers)
+4. **Hardware-Accelerated CSS**: Use `transform`, `opacity`, and `will-change` for smooth animations
+
+#### **UI/UX Design**
+5. **Viewport Units**: Use `vw/vh` for truly responsive design on R1's fixed viewport
+6. **Color-Coded States**: Use full-screen background colors to indicate app states
+7. **Large Touch Targets**: Ensure interactive elements are easily tappable
+8. **High Contrast**: Design for the R1's small screen with clear visual hierarchy
+
+#### **Performance**
+9. **Minimize DOM Updates**: Batch operations and use CSS classes for state changes
+10. **Optimize Assets**: Compress images and use appropriate formats
+11. **Efficient Polling**: Use proper cleanup for sensors and timeouts
+
+#### **R1 Integration**
+12. **Comprehensive Hardware Support**: Handle all R1 events (sideClick, scrollUp/Down, longPress)
+13. **Fallback Controls**: Provide keyboard alternatives for development/testing
+14. **Proper Storage**: Use R1's storage APIs with base64 encoding for persistence
+15. **Error Handling**: Implement robust error handling for hardware APIs
+
+#### **QR Code Generation**
+16. **🐰 CRITICAL**: Always use `generate-r1-qr.js` with direct JSON manifest encoding
+17. **Test on Device**: Validate QR codes scan successfully on actual R1 hardware
+18. **Proper Hosting**: Ensure app URLs are accessible and serve correct MIME types
+
+## 📖 Building R1 Apps Guide
+
+For comprehensive guidance on building working R1 applications, see our detailed guide:
+
+**[📚 BUILDING_R1_APPS.md](./BUILDING_R1_APPS.md)**
+
+This guide includes:
+- ✅ **Verified QR code formats** (reverse engineered from working apps)
+- 🏗️ **App architecture patterns** (state machines, build systems)
+- 🎨 **UI/UX best practices** (responsive design, hardware acceleration)
+- 💾 **Storage implementation** (R1 APIs with proper encoding)
+- 🚀 **Deployment checklist** (testing, validation, troubleshooting)
+- 📱 **Working examples** (based on successful Rabbit Intern apps)
+
+**🐰 CRITICAL:** This guide contains breakthrough discoveries about the correct QR code format that R1 devices actually expect, solving the "not a valid creation code" errors.
 
 ## 🤝 Contributing
 

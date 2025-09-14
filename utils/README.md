@@ -6,38 +6,48 @@ This directory contains utility scripts to help with R1 app development.
 
 Multiple utilities for generating QR codes in the correct format for R1 device app downloads.
 
-### `generate-qr.js` - Data Generation
+### `generate-r1-qr.js` - 🐰 VERIFIED WORKING FORMAT ✅
+**BREAKTHROUGH**: Based on reverse engineering successful Rabbit Intern apps, this generates QR codes in the **exact format** R1 devices expect!
+
+**✅ VERIFIED WORKING**: Tested with actual working Rabbit Intern-generated apps that successfully scan on R1 devices.
+
+#### Usage
+```bash
+# Generate PNG (recommended for R1 compatibility)
+node utils/generate-r1-qr.js reaction-timer png
+
+# Generate SVG
+node utils/generate-r1-qr.js reaction-timer svg
+```
+
+#### **CRITICAL DISCOVERY:**
+After analyzing working Rabbit Intern apps, we discovered the correct QR format:
+
+- ❌ **Previous attempts**: QR codes contained URLs with base64 parameters → *"not a valid creation code"*
+- ✅ **Working format**: QR codes contain **plain JSON manifest data directly**
+- ✅ **No encoding needed**: Simple JSON structure, no base64 or URL wrapping
+- ✅ **Direct app links**: URLs point directly to the app's built `index.html`
+
+#### **Verified Working JSON Format:**
+```json
+{
+  "title": "App Name",
+  "url": "https://your-domain.com/apps/app/dist/index.html",
+  "description": "App description",
+  "iconUrl": "https://your-domain.com/apps/app/dist/icon.png",
+  "themeColor": "#FFD700"
+}
+```
+
+### `generate-qr-image.js` - Image Generation (Legacy)
+Generates QR code image files with visual patterns.
+
+**⚠️ DEPRECATED**: Use `generate-r1-qr.js` for actual R1 device compatibility.
+
+### `generate-qr.js` - Data Generation (Legacy)
 Generates QR code data and URLs for R1 app downloads.
 
-### `generate-qr-image.js` - Image Generation
-Generates **actual QR code image files** that are properly scannable by R1 devices and QR readers.
-
-**✅ NEW**: Now creates proper QR codes with actual data encoding instead of just visual patterns!
-
-### Usage
-
-#### Generate QR Code Images (Recommended)
-
-```bash
-# Generate BMP image (recommended for compatibility)
-node utils/generate-qr-image.js "reaction-timer" bmp
-
-# Generate SVG image (alternative)
-node utils/generate-qr-image.js "reaction-timer" svg
-
-# Specify output directory
-node utils/generate-qr-image.js "my-app" bmp /path/to/output
-```
-
-#### Generate QR Code Data
-
-```bash
-# Basic usage
-node utils/generate-qr.js "My App Name"
-
-# With description and custom color
-node utils/generate-qr.js "Reaction Timer" "Test your reaction speed!" "#FFD700"
-```
+**⚠️ DEPRECATED**: Use `generate-r1-qr.js` for actual R1 device compatibility.
 
 ### What it generates
 
