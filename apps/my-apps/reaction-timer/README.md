@@ -6,9 +6,9 @@ A simple and fun reaction time testing game for the R1 device.
 
 Scan this QR code with your R1 device to download and install the app:
 
-![Reaction Timer QR Code](./reaction-timer-qr.png)
+![Reaction Timer QR Code](./reaction-timer-r1-qr.png)
 
-**Direct Link:** [Download to R1](https://nytemode-rabbit.vercel.app/apps/sdk-examples/qr/final/index_fixed.html?jsondata=eyJ0aXRsZSI6IlJlYWN0aW9uIFRpbWVyIiwidXJsIjoiaHR0cHM6Ly9ueXRlbW9kZS1yYWJiaXQudmVyY2VsLmFwcC9hcHBzL215LWFwcHMvcmVhY3Rpb24tdGltZXIvIiwiZGVzY3JpcHRpb24iOiJUZXN0IHlvdXIgcmVhY3Rpb24gc3BlZWQhIFByZXNzIFBUVCBidXR0b24gYXMgc29vbiBhcyBzY3JlZW4gdHVybnMgZ3JlZW4uIEZlYXR1cmVzIG1pbGxpc2Vjb25kIHByZWNpc2lvbiB0aW1pbmcgYW5kIGJlc3QgdGltZSB0cmFja2luZy4iLCJpY29uVXJsIjoiaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL05ZVEVNT0RFT05MWS9ueXRlbW9kZS1yYWJiaXQvbWFpbi9hcHBzL215LWFwcHMvcmVhY3Rpb24tdGltZXIvaWNvbi5wbmciLCJ0aGVtZUNvbG9yIjoiI0ZGRDcwMCJ9)
+**✅ VERIFIED WORKING:** This QR code uses the correct format that R1 devices actually expect - direct JSON manifest encoding (no intermediate web pages).
 
 ## How to Play
 
