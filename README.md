@@ -288,4 +288,4 @@ Copyright (c) 2025 rabbit opensource
 
 ---
 
-**Built for the R1 ecosystem by rabbit opensource** 🐰
+**Built by nytemode - https://nytemode.com**
