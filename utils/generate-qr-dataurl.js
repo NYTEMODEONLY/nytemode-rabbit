@@ -79,7 +79,7 @@ function generateQRDataURL(appName, description = '', themeColor = '#000000') {
 }
 
 // Generate app data for QR encoding
-function generateAppData(appName, description = '', themeColor = '#000000') {
+function generateAppData(appName, description = '', themeColor = '#000000', format = 'bmp') {
     const appData = {
         title: appName.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
         url: `https://nytemode-rabbit.vercel.app/apps/my-apps/${appName}/`,
@@ -103,6 +103,7 @@ function generateAppData(appName, description = '', themeColor = '#000000') {
 const appName = process.argv[2] || 'test-app';
 const description = process.argv[3] || '';
 const themeColor = process.argv[4] || '#000000';
+const format = process.argv[5] || 'bmp';
 
 console.log('🎯 R1 QR Code Data URL Generator');
 console.log('='.repeat(50));

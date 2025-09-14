@@ -128,19 +128,25 @@ Professional QR code generation tool featuring:
 
 4. **Generate QR Code for R1 download:**
    ```bash
-   # Use the QR generator utility
-   node utils/generate-qr.js "My App Name" "App description" "#FF6B35"
+   # Generate BMP image (recommended for compatibility)
+   node utils/generate-qr-image.js "My App Name" bmp
+
+   # Or generate data URL for quick testing
+   node utils/generate-qr-dataurl.js "My App Name" "App description" "#FF6B35"
 
    # Or manually create one using the QR generator:
    # https://[your-domain]/apps/sdk-examples/qr/final/index_fixed.html
    ```
 
-5. **Add QR code to your app's README.md**
+5. **Add QR code image to your app's README.md:**
+   ```markdown
+   ![My App Name QR Code](./my-app-name-qr.bmp)
+   ```
 
 6. **Commit your changes:**
    ```bash
    git add .
-   git commit -m "Add my first R1 app"
+   git commit -m "Add my first R1 app with QR code"
    git push
    ```
 
@@ -248,16 +254,24 @@ creations-sdk/
 
 ### QR Code Generation for R1 Downloads
 
-Every app should include a QR code for easy R1 device installation:
+Every app should include a scannable QR code image for easy R1 device installation:
 
 ```bash
-# Generate QR code automatically
-node utils/generate-qr.js "App Name" "Description" "#Color"
+# Generate BMP image (recommended - works everywhere)
+node utils/generate-qr-image.js "App Name" bmp
+
+# Generate JPG/PNG for smaller file sizes
+node utils/generate-qr-image.js "App Name" jpg
+
+# Quick data URL generation for testing
+node utils/generate-qr-dataurl.js "App Name" "Description" "#Color"
 
 # Manual QR generation
 # Visit: apps/sdk-examples/qr/final/index_fixed.html
 # Use JSON format: {"title":"App","url":"https://...","description":"...","themeColor":"#..."}
 ```
+
+**Best Practice:** Use BMP format for maximum compatibility, then convert to JPG online for smaller file sizes.
 
 ### Best Practices
 1. **Use CSS Transforms**: Leverage `transform` and `opacity` for animations

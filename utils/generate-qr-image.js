@@ -123,14 +123,23 @@ class QRCodeGenerator {
         }
     }
 
-    generateQRImage(data, size = 'small') {
+    generateQRImage(data, size = 'small', format = 'png') {
         const matrix = this.qrPatterns[size];
         const scale = size === 'small' ? 8 : 6; // Pixel scale factor
+        const imgSize = matrix.length * scale + 40; // Add margin
+
+        if (format === 'bmp' || format === 'png') {
+            // Generate BMP format (works without external dependencies)
+            return this.generateBMPImage(matrix, scale);
+        } else {
+            // Generate SVG as fallback
+            return this.generateSVGImage(matrix, scale);
+        }
+    }
+
+    generateSVGImage(matrix, scale) {
         const imgSize = matrix.length * scale;
         const margin = 20;
-
-        // Create simple BMP format (JPG would require external library)
-        // For now, we'll generate SVG that can be easily converted to JPG
 
         let svg = `<svg width="${imgSize + margin * 2}" height="${imgSize + margin * 2}" xmlns="http://www.w3.org/2000/svg">`;
 
@@ -149,30 +158,85 @@ class QRCodeGenerator {
         }
 
         svg += '</svg>';
-
-        // Add data encoding in the QR (simplified - in real QR this would be complex)
-        // For demo purposes, we'll use a simpler approach
-
         return svg;
+    }
+
+    generateBMPImage(matrix, scale) {
+        const imgSize = matrix.length * scale + 40;
+        const width = imgSize;
+        const height = imgSize;
+
+        // BMP Header (54 bytes)
+        const fileSize = 54 + width * height * 3; // Header + pixel data
+        const bmpHeader = Buffer.alloc(54);
+
+        // BMP signature
+        bmpHeader.write('BM', 0);
+        bmpHeader.writeUInt32LE(fileSize, 2);
+        bmpHeader.writeUInt32LE(54, 10); // Data offset
+
+        // DIB header
+        bmpHeader.writeUInt32LE(40, 14); // DIB header size
+        bmpHeader.writeInt32LE(width, 18);
+        bmpHeader.writeInt32LE(height, 22);
+        bmpHeader.writeUInt16LE(1, 26); // Planes
+        bmpHeader.writeUInt16LE(24, 28); // Bits per pixel (24-bit RGB)
+        bmpHeader.writeUInt32LE(0, 30); // Compression
+        bmpHeader.writeUInt32LE(width * height * 3, 34); // Image size
+        bmpHeader.writeInt32LE(2835, 38); // X pixels per meter
+        bmpHeader.writeInt32LE(2835, 42); // Y pixels per meter
+        bmpHeader.writeUInt32LE(0, 46); // Colors used
+        bmpHeader.writeUInt32LE(0, 50); // Important colors
+
+        // Create pixel data (BMP stores pixels from bottom to top)
+        const pixelData = Buffer.alloc(width * height * 3);
+
+        for (let y = 0; y < height; y++) {
+            for (let x = 0; x < width; x++) {
+                const bmpY = height - 1 - y; // Flip Y coordinate for BMP
+                const pixelIndex = (bmpY * width + x) * 3;
+
+                // Default to white background
+                let r = 255, g = 255, b = 255;
+
+                // Check if this pixel should be black (QR module)
+                const qrX = Math.floor((x - 20) / scale);
+                const qrY = Math.floor((y - 20) / scale);
+
+                if (qrX >= 0 && qrX < matrix[0].length && qrY >= 0 && qrY < matrix.length) {
+                    if (matrix[qrY][qrX] === 1) {
+                        r = 0; g = 0; b = 0; // Black for QR modules
+                    }
+                }
+
+                pixelData[pixelIndex] = b;     // Blue
+                pixelData[pixelIndex + 1] = g; // Green
+                pixelData[pixelIndex + 2] = r; // Red
+            }
+        }
+
+        return Buffer.concat([bmpHeader, pixelData]);
     }
 }
 
 // Generate QR code image
-function generateQRImage(appName, outputDir = './') {
+function generateQRImage(appName, outputDir = './', format = 'bmp') {
     const generator = new QRCodeGenerator();
 
-    // Generate SVG (which can be easily converted to JPG)
-    const svgContent = generator.generateQRImage(null, 'small');
+    // Generate BMP image (works without external dependencies)
+    const imageBuffer = generator.generateQRImage(null, 'small', format);
 
     // Create output directory if it doesn't exist
     if (!fs.existsSync(outputDir)) {
         fs.mkdirSync(outputDir, { recursive: true });
     }
 
-    const outputPath = path.join(outputDir, `${appName}-qr.svg`);
-    fs.writeFileSync(outputPath, svgContent);
+    const extension = format === 'svg' ? 'svg' : (format === 'png' ? 'bmp' : format);
+    const outputPath = path.join(outputDir, `${appName}-qr.${extension}`);
+    fs.writeFileSync(outputPath, imageBuffer);
 
-    console.log(`✅ QR Code SVG generated: ${outputPath}`);
+    console.log(`✅ QR Code ${format.toUpperCase()} generated: ${outputPath}`);
+    console.log(`📏 File size: ${(imageBuffer.length / 1024).toFixed(1)} KB`);
 
     // Also create a simple text-based representation for debugging
     const debugPath = path.join(outputDir, `${appName}-qr-debug.txt`);
@@ -190,27 +254,47 @@ function generateQRImage(appName, outputDir = './') {
 
 // Main execution
 const appName = process.argv[2] || 'test-app';
-const outputDir = process.argv[3] || path.join(__dirname, '..', 'apps', 'my-apps', appName);
+const format = process.argv[3] || 'bmp'; // Default to BMP for better compatibility
+const outputDir = process.argv[4] || path.join(__dirname, '..', 'apps', 'my-apps', appName);
 
 console.log('🎯 R1 QR Code Image Generator');
-console.log('='.repeat(40));
+console.log('='.repeat(50));
 console.log(`📱 App: ${appName}`);
+console.log(`📷 Format: ${format.toUpperCase()}`);
 console.log(`📁 Output: ${outputDir}`);
 console.log('');
 
-const outputPath = generateQRImage(appName, outputDir);
+const outputPath = generateQRImage(appName, outputDir, format);
 
 console.log('');
 console.log('📋 Next Steps:');
-console.log('1. Convert SVG to JPG using an online converter or image editor');
-console.log('2. Upload the JPG to your hosting service');
-console.log('3. Update your app README with the JPG image URL');
+if (format === 'bmp') {
+    console.log('1. BMP file generated - can be opened in any image viewer');
+    console.log('2. Convert to JPG/PNG using an online converter if needed');
+    console.log('3. Commit the image file to your GitHub repository');
+    console.log('4. Update your app README with the image path');
+} else if (format === 'svg') {
+    console.log('1. SVG file generated - ready for GitHub');
+    console.log('2. Commit the SVG file to your repository');
+    console.log('3. Update your app README with the SVG path');
+} else {
+    console.log('1. Image file generated successfully');
+    console.log('2. Commit to your repository');
+    console.log('3. Update your app README');
+}
 console.log('4. Test scanning on R1 device');
 console.log('');
 
 console.log('🔗 Example README markdown:');
 console.log('```markdown');
-console.log(`![${appName} QR Code](https://your-domain.com/${appName}-qr.jpg)`);
+const extension = format === 'svg' ? 'svg' : (format === 'png' ? 'png' : format);
+console.log(`![${appName} QR Code](./${appName}-qr.${extension})`);
 console.log('');
 console.log(`**Direct Link:** [Download to R1](https://nytemode-rabbit.vercel.app/apps/sdk-examples/qr/final/index_fixed.html?jsondata=YOUR_ENCODED_DATA)`);
 console.log('```');
+console.log('');
+console.log('💡 Pro Tips:');
+console.log('- BMP files work everywhere but are larger');
+console.log('- Convert to JPG online for smaller file sizes');
+console.log('- GitHub displays BMP, JPG, PNG, and SVG formats');
+console.log('- Test with your R1 device to ensure scannability');
