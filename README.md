@@ -128,11 +128,12 @@ Professional QR code generation tool featuring:
 
 4. **Generate QR Code for R1 download:**
    ```bash
-   # Generate BMP image (recommended for compatibility)
-   node utils/generate-qr-image.js "My App Name" bmp
+   # Generate REAL scannable QR code (recommended)
+   node utils/generate-real-qr.js "my-app-name" png
 
-   # Or generate data URL for quick testing
-   node utils/generate-qr-dataurl.js "My App Name" "App description" "#FF6B35"
+   # Alternative formats
+   node utils/generate-real-qr.js "my-app-name" svg
+   node utils/generate-real-qr.js "my-app-name" jpg
 
    # Or manually create one using the QR generator:
    # https://[your-domain]/apps/sdk-examples/qr/final/index_fixed.html
@@ -140,7 +141,7 @@ Professional QR code generation tool featuring:
 
 5. **Add QR code image to your app's README.md:**
    ```markdown
-   ![My App Name QR Code](./my-app-name-qr.bmp)
+   ![My App Name QR Code](./my-app-name-qr.png)
    ```
 
 6. **Commit your changes:**
@@ -257,11 +258,12 @@ creations-sdk/
 Every app should include a scannable QR code image for easy R1 device installation:
 
 ```bash
-# Generate BMP image (recommended - works everywhere)
-node utils/generate-qr-image.js "App Name" bmp
+# Generate REAL scannable QR code (RECOMMENDED)
+node utils/generate-real-qr.js "app-name" png
 
-# Generate JPG/PNG for smaller file sizes
-node utils/generate-qr-image.js "App Name" jpg
+# Alternative formats
+node utils/generate-real-qr.js "app-name" svg
+node utils/generate-real-qr.js "app-name" jpg
 
 # Quick data URL generation for testing
 node utils/generate-qr-dataurl.js "App Name" "Description" "#Color"
@@ -271,7 +273,7 @@ node utils/generate-qr-dataurl.js "App Name" "Description" "#Color"
 # Use JSON format: {"title":"App","url":"https://...","description":"...","themeColor":"#..."}
 ```
 
-**Best Practice:** Use BMP format for maximum compatibility, then convert to JPG online for smaller file sizes.
+**✅ IMPORTANT:** Use `generate-real-qr.js` for proper scannable QR codes. The older generators created visual patterns that weren't actually scannable.
 
 ### Best Practices
 1. **Use CSS Transforms**: Leverage `transform` and `opacity` for animations
@@ -279,7 +281,7 @@ node utils/generate-qr-dataurl.js "App Name" "Description" "#Color"
 3. **Optimize Images**: Compress assets and use appropriate formats
 4. **Handle Errors**: Implement proper error handling for hardware APIs
 5. **Test on Device**: Validate on actual R1 hardware for best results
-6. **Include QR Codes**: Always generate QR codes for R1 downloads
+6. **Include REAL QR Codes**: Use `generate-real-qr.js` for proper scannable QR codes
 
 ## 🤝 Contributing
 

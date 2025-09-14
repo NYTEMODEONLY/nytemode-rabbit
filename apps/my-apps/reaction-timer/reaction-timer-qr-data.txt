@@ -1,0 +1,17 @@
+QR Code Data for reaction-timer
+=================================
+
+Encoded URL: https://nytemode-rabbit.vercel.app/apps/sdk-examples/qr/final/index_fixed.html?jsondata=eyJ0aXRsZSI6IlJlYWN0aW9uIFRpbWVyIiwidXJsIjoiaHR0cHM6Ly9ueXRlbW9kZS1yYWJiaXQudmVyY2VsLmFwcC9hcHBzL215LWFwcHMvcmVhY3Rpb24tdGltZXIvIiwiZGVzY3JpcHRpb24iOiJSZWFjdGlvbiBUaW1lciAtIFRlc3QgeW91ciByZWFjdGlvbiBzcGVlZCEgUHJlc3MgUFRUIGJ1dHRvbiBhcyBzb29uIGFzIHNjcmVlbiB0dXJucyBncmVlbi4gRmVhdHVyZXMgbWlsbGlzZWNvbmQgcHJlY2lzaW9uIHRpbWluZyBhbmQgYmVzdCB0aW1lIHRyYWNraW5nLiIsImljb25VcmwiOiJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vTllURU1PREVPTkxZL255dGVtb2RlLXJhYmJpdC9tYWluL2FwcHMvbXktYXBwcy9yZWFjdGlvbi10aW1lci9pY29uLnBuZyIsInRoZW1lQ29sb3IiOiIjRkZENzAwIn0=
+
+Decoded JSON Data:
+{
+  "title": "Reaction Timer",
+  "url": "https://nytemode-rabbit.vercel.app/apps/my-apps/reaction-timer/",
+  "description": "Reaction Timer - Test your reaction speed! Press PTT button as soon as screen turns green. Features millisecond precision timing and best time tracking.",
+  "iconUrl": "https://raw.githubusercontent.com/NYTEMODEONLY/nytemode-rabbit/main/apps/my-apps/reaction-timer/icon.png",
+  "themeColor": "#FFD700"
+}
+
+Generated: 2025-09-14T21:10:22.531Z
+Format: PNG
+File: /Users/lobo/Desktop/Progress/Built in 2025/r1/sdk/creations-sdk/apps/my-apps/reaction-timer/reaction-timer-qr.png
