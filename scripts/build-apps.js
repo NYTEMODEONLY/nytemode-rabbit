@@ -146,4 +146,4 @@ apps.forEach(app => {
 });
 
 console.log('\n🎉 All apps built! Ready for Vercel deployment.');
-console.log('🚀 Run "vercel" to deploy or "npm run dev" to test locally');
+console.log('🚀 Vercel will automatically deploy when you push to GitHub');
