@@ -20,6 +20,8 @@ import 'node:fs';
 import 'node:path';
 import 'node:crypto';
 import 'node:url';
+import '@iconify/utils';
+import 'consola';
 
 function jsonParse(value) {
   return JSON.parse(value, regExpReviver);

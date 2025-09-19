@@ -22,6 +22,8 @@ import 'node:fs';
 import 'node:path';
 import 'node:crypto';
 import 'node:url';
+import '@iconify/utils';
+import 'consola';
 
 function createNav(contents, configs) {
   const { navigation } = useRuntimeConfig().public.content;

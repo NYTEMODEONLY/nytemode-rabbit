@@ -9,35 +9,74 @@ Browse our collection of working Rabbit R1 applications. Each app includes sourc
 
 ## Featured Apps
 
-### ⏱️ [Reaction Timer](/apps/reaction-timer)
-Test your reflexes with precision timing. Features millisecond accuracy, best time tracking, and hardware button integration.
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+  <UCard>
+    <div class="text-3xl mb-4">⏱️</div>
+    <h3 class="text-xl font-semibold mb-2">Reaction Timer</h3>
+    <p class="text-gray-600 dark:text-gray-400 mb-4">Test your reflexes with precision timing. Features millisecond accuracy, best time tracking, and hardware button integration.</p>
+    <UButton to="/apps/reaction-timer" variant="link" class="p-0 h-auto">
+      Learn more →
+    </UButton>
+  </UCard>
 
-### ⚡ [Advanced Reaction Timer](/apps/r1-reaction-timer-game)
-Hardware-accelerated reaction timer built with modern web technologies. Includes state machines and optimized performance.
+  <UCard>
+    <div class="text-3xl mb-4">⚡</div>
+    <h3 class="text-xl font-semibold mb-2">Advanced Reaction Timer</h3>
+    <p class="text-gray-600 dark:text-gray-400 mb-4">Hardware-accelerated reaction timer built with modern web technologies. Includes state machines and optimized performance.</p>
+    <UButton to="/apps/r1-reaction-timer-game" variant="link" class="p-0 h-auto">
+      Learn more →
+    </UButton>
+  </UCard>
 
-### 🔧 [Plugin Demo](/apps/plugin-demo)
-Complete demonstration of R1 SDK capabilities including hardware controls, LLM integration, and persistent storage.
+  <UCard>
+    <div class="text-3xl mb-4">🔧</div>
+    <h3 class="text-xl font-semibold mb-2">Plugin Demo</h3>
+    <p class="text-gray-600 dark:text-gray-400 mb-4">Complete demonstration of R1 SDK capabilities including hardware controls, LLM integration, and persistent storage.</p>
+    <UButton to="/apps/plugin-demo" variant="link" class="p-0 h-auto">
+      Learn more →
+    </UButton>
+  </UCard>
 
-### 📱 [QR Demo](/apps/qr-demo)
-QR code generation and testing tools. Learn how to create proper QR codes for R1 app distribution.
+  <UCard>
+    <div class="text-3xl mb-4">📱</div>
+    <h3 class="text-xl font-semibold mb-2">QR Demo</h3>
+    <p class="text-gray-600 dark:text-gray-400 mb-4">QR code generation and testing tools. Learn how to create proper QR codes for R1 app distribution.</p>
+    <UButton to="/apps/qr-demo" variant="link" class="p-0 h-auto">
+      Learn more →
+    </UButton>
+  </UCard>
+</div>
 
 ## 🎮 Try Apps Live
 
 All apps are hosted on Vercel and can be tested directly in your browser:
 
-### 🎯 [Reaction Timer](/apps/reaction-timer/)
-Test reflexes with precision timing
+<UCard class="mb-8">
+  <template #header>
+    <h3 class="text-lg font-semibold">🕹️ Interactive Demos</h3>
+  </template>
 
-### ⚡ [Advanced Reaction Timer](/apps/r1-reaction-timer-game/)
-Hardware-accelerated version
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <UButton to="/apps/reaction-timer" variant="outline" class="justify-start">
+      <span class="mr-2">🎯</span> Reaction Timer - Test reflexes with precision timing
+    </UButton>
+    <UButton to="/apps/r1-reaction-timer-game" variant="outline" class="justify-start">
+      <span class="mr-2">⚡</span> Advanced Timer - Hardware-accelerated version
+    </UButton>
+    <UButton to="/apps/plugin-demo" variant="outline" class="justify-start">
+      <span class="mr-2">🔧</span> Plugin Demo - SDK capabilities showcase
+    </UButton>
+    <UButton to="/apps/qr-demo" variant="outline" class="justify-start">
+      <span class="mr-2">📱</span> QR Demo - Code generation tools
+    </UButton>
+  </div>
 
-### 🔧 [Plugin Demo](/apps/plugin-demo/)
-SDK capabilities showcase
-
-### 📱 [QR Demo](/apps/qr-demo/)
-Code generation tools
-
-*Note: Use keyboard controls (Spacebar) when testing in browser instead of R1 hardware buttons.*
+  <template #footer>
+    <p class="text-sm text-gray-600 dark:text-gray-400">
+      <em>Note: Use Spacebar when testing in browser instead of R1 hardware buttons.</em>
+    </p>
+  </template>
+</UCard>
 
 ## 📥 Download to R1 Device
 

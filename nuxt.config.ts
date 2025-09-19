@@ -1,10 +1,8 @@
 export default defineNuxtConfig({
   modules: [
     '@nuxt/content',
-    '@nuxtjs/tailwindcss'
+    '@nuxt/ui'
   ],
-
-  css: ['~/assets/css/main.css'],
 
   content: {
     highlight: {
@@ -42,5 +40,11 @@ export default defineNuxtConfig({
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
       ]
     }
+  },
+
+  // Nuxt UI configuration
+  ui: {
+    primary: 'green',
+    gray: 'slate'
   }
 })

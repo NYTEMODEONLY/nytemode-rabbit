@@ -115,6 +115,18 @@
       "#mdc-imports": [
         "./mdc-imports.mjs"
       ],
+      "#ui": [
+        "../node_modules/@nuxt/ui/dist/runtime"
+      ],
+      "#ui/*": [
+        "../node_modules/@nuxt/ui/dist/runtime/*"
+      ],
+      "#ui-colors": [
+        "./ui.colors.mjs"
+      ],
+      "#color-mode-options": [
+        "./color-mode-options.mjs"
+      ],
       "#vue-router": [
         "../node_modules/vue-router"
       ],
@@ -124,8 +136,11 @@
       "#imports": [
         "./imports"
       ],
+      "#tailwind-config": [
+        "./tailwind/expose"
+      ],
       "#app-manifest": [
-        "./manifest/meta/9a21f73e-f039-4d21-8b41-53869321f54e.json"
+        "./manifest/meta/43a50768-fbf2-4bb1-b791-9411298770cf.json"
       ],
       "#components": [
         "./components"
@@ -149,7 +164,7 @@
     "noUncheckedIndexedAccess": false,
     "forceConsistentCasingInFileNames": true,
     "noImplicitOverride": true,
-    "module": "ESNext",
+    "module": "preserve",
     "noEmit": true,
     "lib": [
       "ESNext",

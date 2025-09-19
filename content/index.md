@@ -9,46 +9,82 @@ Build, deploy, and document your Rabbit R1 apps with our comprehensive SDK and d
 
 ## Quick Start
 
-### 🚀 Getting Started
-Start building your first R1 app in minutes with our step-by-step guide.
-[Get Started →](/getting-started)
-
-### 📱 Browse Apps
-Discover working R1 apps with source code and installation QR codes.
-[Browse Apps →](/apps)
+<div class="flex flex-col sm:flex-row gap-4 mb-8">
+  <UButton to="/getting-started" size="lg" class="flex-1">
+    🚀 Getting Started
+  </UButton>
+  <UButton to="/apps" size="lg" variant="outline" class="flex-1">
+    📱 Browse Apps
+  </UButton>
+</div>
 
 ## What's Included
 
-### 📚 SDK Documentation
-Complete API reference and guides for building R1 apps with hardware integration, storage, and LLM capabilities.
-[Read docs →](/docs)
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+  <UCard>
+    <div class="text-3xl mb-4">📚</div>
+    <h3 class="text-xl font-semibold mb-2">SDK Documentation</h3>
+    <p class="text-gray-600 dark:text-gray-400 mb-4">Complete API reference and guides for building R1 apps with hardware integration, storage, and LLM capabilities.</p>
+    <UButton to="/docs" variant="link" class="p-0 h-auto">
+      Read docs →
+    </UButton>
+  </UCard>
 
-### 🎮 App Gallery
-Discover and download working R1 apps. Each app includes source code, documentation, and QR codes for easy installation.
-[Browse apps →](/apps)
+  <UCard>
+    <div class="text-3xl mb-4">🎮</div>
+    <h3 class="text-xl font-semibold mb-2">App Gallery</h3>
+    <p class="text-gray-600 dark:text-gray-400 mb-4">Discover and download working R1 apps. Each app includes source code, documentation, and QR codes for easy installation.</p>
+    <UButton to="/apps" variant="link" class="p-0 h-auto">
+      Browse apps →
+    </UButton>
+  </UCard>
 
-### 🛠️ Development Tools
-QR code generators, build scripts, and deployment tools to streamline your R1 app development workflow.
-[View tools →](/docs/building-r1-apps)
+  <UCard>
+    <div class="text-3xl mb-4">🛠️</div>
+    <h3 class="text-xl font-semibold mb-2">Development Tools</h3>
+    <p class="text-gray-600 dark:text-gray-400 mb-4">QR code generators, build scripts, and deployment tools to streamline your R1 app development workflow.</p>
+    <UButton to="/docs/building-r1-apps" variant="link" class="p-0 h-auto">
+      View tools →
+    </UButton>
+  </UCard>
 
-### 🤝 Community
-Join the community of R1 developers, share your apps, and contribute to the ecosystem.
-[Join community →](https://github.com/nytemode/r1-creations-sdk)
+  <UCard>
+    <div class="text-3xl mb-4">🤝</div>
+    <h3 class="text-xl font-semibold mb-2">Community</h3>
+    <p class="text-gray-600 dark:text-gray-400 mb-4">Join the community of R1 developers, share your apps, and contribute to the ecosystem.</p>
+    <UButton href="https://github.com/nytemode/r1-creations-sdk" target="_blank" variant="link" class="p-0 h-auto">
+      Join community →
+    </UButton>
+  </UCard>
+</div>
 
 ## 🎮 Live Apps Running on Vercel
 
 Try out these R1 apps directly in your browser (with keyboard fallbacks for testing):
 
-### 🎯 [Reaction Timer](/apps/reaction-timer/)
-Test your reflexes with millisecond precision timing
+<UCard class="mb-8">
+  <template #header>
+    <h3 class="text-lg font-semibold">🕹️ Interactive Demos</h3>
+  </template>
 
-### ⚡ [Advanced Reaction Timer](/apps/r1-reaction-timer-game/)
-Hardware-accelerated version built with Vite
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <UButton to="/apps/reaction-timer" variant="outline" class="justify-start">
+      <span class="mr-2">🎯</span> Reaction Timer - Test reflexes with precision timing
+    </UButton>
+    <UButton to="/apps/r1-reaction-timer-game" variant="outline" class="justify-start">
+      <span class="mr-2">⚡</span> Advanced Timer - Hardware-accelerated version
+    </UButton>
+    <UButton to="/apps/plugin-demo" variant="outline" class="justify-start">
+      <span class="mr-2">🔧</span> Plugin Demo - SDK capabilities showcase
+    </UButton>
+    <UButton to="/apps/qr-demo" variant="outline" class="justify-start">
+      <span class="mr-2">📱</span> QR Demo - Code generation tools
+    </UButton>
+  </div>
 
-### 🔧 [Plugin Demo](/apps/plugin-demo/)
-Complete SDK demonstration with hardware integration
-
-### 📱 [QR Demo](/apps/qr-demo/)
-QR code generation and testing tools
-
-*Note: Use Spacebar when testing in browser instead of R1 hardware buttons.*
+  <template #footer>
+    <p class="text-sm text-gray-600 dark:text-gray-400">
+      <em>Note: Use Spacebar when testing in browser instead of R1 hardware buttons.</em>
+    </p>
+  </template>
+</UCard>

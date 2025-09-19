@@ -1,58 +1,72 @@
 <template>
-  <div class="min-h-screen bg-gray-50 dark:bg-gray-900">
-    <!-- Navigation -->
-    <nav class="bg-white dark:bg-gray-800 shadow-sm border-b border-gray-200 dark:border-gray-700">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between h-16">
-          <div class="flex items-center">
-            <NuxtLink to="/" class="text-xl font-bold text-gray-900 dark:text-white">
-              R1 Creations SDK
-            </NuxtLink>
-          </div>
-          <div class="flex items-center space-x-4">
-            <NuxtLink to="/apps" class="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
-              Apps
-            </NuxtLink>
-            <NuxtLink to="/docs" class="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
-              Docs
-            </NuxtLink>
-            <NuxtLink to="/getting-started" class="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
-              Getting Started
-            </NuxtLink>
-          </div>
-        </div>
-      </div>
-    </nav>
+  <div>
+    <!-- Header -->
+    <UHeader>
+      <template #logo>
+        <h3 class="text-lg font-bold">
+          🐰 R1 Creations SDK
+        </h3>
+      </template>
+
+      <template #links>
+        <UHeaderLinks
+          :links="[
+            { label: 'Home', to: '/' },
+            { label: 'Apps', to: '/apps' },
+            { label: 'Getting Started', to: '/getting-started' },
+            { label: 'Docs', to: '/docs' }
+          ]"
+        />
+      </template>
+    </UHeader>
 
     <!-- Main Content -->
-    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      <slot />
-    </main>
+    <UMain>
+      <ContentDoc />
+    </UMain>
 
     <!-- Footer -->
-    <footer class="bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 mt-16">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div class="text-center text-gray-600 dark:text-gray-400">
-          <p>&copy; 2025 Rabbit R1 Creations SDK. Built for the Rabbit R1 device.</p>
-          <p class="mt-2">
-            <NuxtLink to="https://github.com/nytemode/r1-creations-sdk" class="hover:text-gray-900 dark:hover:text-white">
-              View on GitHub
-            </NuxtLink>
-          </p>
+    <UFooter>
+      <template #links>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div>
+            <h4 class="font-semibold text-gray-900 dark:text-white mb-4">Apps</h4>
+            <ul class="space-y-2 text-sm">
+              <li><NuxtLink to="/apps/reaction-timer" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">Reaction Timer</NuxtLink></li>
+              <li><NuxtLink to="/apps/r1-reaction-timer-game" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">Advanced Timer</NuxtLink></li>
+              <li><NuxtLink to="/apps/plugin-demo" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">Plugin Demo</NuxtLink></li>
+              <li><NuxtLink to="/apps/qr-demo" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">QR Demo</NuxtLink></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-semibold text-gray-900 dark:text-white mb-4">Documentation</h4>
+            <ul class="space-y-2 text-sm">
+              <li><NuxtLink to="/getting-started" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">Getting Started</NuxtLink></li>
+              <li><NuxtLink to="/docs" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">API Reference</NuxtLink></li>
+              <li><NuxtLink to="/docs/building-r1-apps" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">Building Apps</NuxtLink></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-semibold text-gray-900 dark:text-white mb-4">Community</h4>
+            <ul class="space-y-2 text-sm">
+              <li><a href="https://github.com/nytemode/r1-creations-sdk" target="_blank" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">GitHub</a></li>
+              <li><a href="https://nyterabbit.vercel.app" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">Live Site</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-semibold text-gray-900 dark:text-white mb-4">About</h4>
+            <p class="text-sm text-gray-600 dark:text-gray-400">
+              Build amazing apps for the Rabbit R1 device with our comprehensive SDK and documentation platform.
+            </p>
+          </div>
         </div>
-      </div>
-    </footer>
+      </template>
+
+      <template #copyright>
+        <p class="text-sm text-gray-600 dark:text-gray-400">
+          © 2025 Rabbit R1 Creations SDK. Built for the Rabbit R1 device.
+        </p>
+      </template>
+    </UFooter>
   </div>
 </template>
-
-<script setup>
-// Add dark mode toggle functionality
-const colorMode = useColorMode()
-
-// Add to head for SEO
-useHead({
-  htmlAttrs: {
-    lang: 'en'
-  }
-})
-</script>

@@ -30,6 +30,10 @@ import { toRouteMatcher, createRouter } from 'file:///Users/lobo/Desktop/Progres
 import { promises } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'file:///Users/lobo/Desktop/Progress/Built%20in%202025/r1/sdk/creations-sdk/node_modules/pathe/dist/index.mjs';
+import { basename } from 'file:///Users/lobo/Desktop/Progress/Built%20in%202025/r1/sdk/creations-sdk/node_modules/@nuxt/icon/node_modules/pathe/dist/index.mjs';
+import { getIcons } from 'file:///Users/lobo/Desktop/Progress/Built%20in%202025/r1/sdk/creations-sdk/node_modules/@iconify/utils/lib/index.mjs';
+import { hash as hash$1 } from 'file:///Users/lobo/Desktop/Progress/Built%20in%202025/r1/sdk/creations-sdk/node_modules/@nuxt/icon/node_modules/ohash/dist/index.mjs';
+import { consola } from 'file:///Users/lobo/Desktop/Progress/Built%20in%202025/r1/sdk/creations-sdk/node_modules/consola/dist/index.mjs';
 
 const serverAssets = [{"baseName":"server","dir":"/Users/lobo/Desktop/Progress/Built in 2025/r1/sdk/creations-sdk/server/assets"}];
 
@@ -607,7 +611,226 @@ function cloneWithProxy(obj, overrides) {
 const cachedEventHandler = defineCachedEventHandler;
 
 const inlineAppConfig = {
-  "nuxt": {}
+  "nuxt": {},
+  "icon": {
+    "provider": "server",
+    "class": "",
+    "aliases": {},
+    "iconifyApiEndpoint": "https://api.iconify.design",
+    "localApiEndpoint": "/api/_nuxt_icon",
+    "fallbackToApi": true,
+    "cssSelectorPrefix": "i-",
+    "cssWherePseudo": true,
+    "mode": "css",
+    "attrs": {
+      "aria-hidden": true
+    },
+    "collections": [
+      "academicons",
+      "akar-icons",
+      "ant-design",
+      "arcticons",
+      "basil",
+      "bi",
+      "bitcoin-icons",
+      "bpmn",
+      "brandico",
+      "bx",
+      "bxl",
+      "bxs",
+      "bytesize",
+      "carbon",
+      "catppuccin",
+      "cbi",
+      "charm",
+      "ci",
+      "cib",
+      "cif",
+      "cil",
+      "circle-flags",
+      "circum",
+      "clarity",
+      "codicon",
+      "covid",
+      "cryptocurrency",
+      "cryptocurrency-color",
+      "dashicons",
+      "devicon",
+      "devicon-plain",
+      "ei",
+      "el",
+      "emojione",
+      "emojione-monotone",
+      "emojione-v1",
+      "entypo",
+      "entypo-social",
+      "eos-icons",
+      "ep",
+      "et",
+      "eva",
+      "f7",
+      "fa",
+      "fa-brands",
+      "fa-regular",
+      "fa-solid",
+      "fa6-brands",
+      "fa6-regular",
+      "fa6-solid",
+      "fad",
+      "fe",
+      "feather",
+      "file-icons",
+      "flag",
+      "flagpack",
+      "flat-color-icons",
+      "flat-ui",
+      "flowbite",
+      "fluent",
+      "fluent-emoji",
+      "fluent-emoji-flat",
+      "fluent-emoji-high-contrast",
+      "fluent-mdl2",
+      "fontelico",
+      "fontisto",
+      "formkit",
+      "foundation",
+      "fxemoji",
+      "gala",
+      "game-icons",
+      "geo",
+      "gg",
+      "gis",
+      "gravity-ui",
+      "gridicons",
+      "grommet-icons",
+      "guidance",
+      "healthicons",
+      "heroicons",
+      "heroicons-outline",
+      "heroicons-solid",
+      "hugeicons",
+      "humbleicons",
+      "ic",
+      "icomoon-free",
+      "icon-park",
+      "icon-park-outline",
+      "icon-park-solid",
+      "icon-park-twotone",
+      "iconamoon",
+      "iconoir",
+      "icons8",
+      "il",
+      "ion",
+      "iwwa",
+      "jam",
+      "la",
+      "lets-icons",
+      "line-md",
+      "logos",
+      "ls",
+      "lucide",
+      "lucide-lab",
+      "mage",
+      "majesticons",
+      "maki",
+      "map",
+      "marketeq",
+      "material-symbols",
+      "material-symbols-light",
+      "mdi",
+      "mdi-light",
+      "medical-icon",
+      "memory",
+      "meteocons",
+      "mi",
+      "mingcute",
+      "mono-icons",
+      "mynaui",
+      "nimbus",
+      "nonicons",
+      "noto",
+      "noto-v1",
+      "octicon",
+      "oi",
+      "ooui",
+      "openmoji",
+      "oui",
+      "pajamas",
+      "pepicons",
+      "pepicons-pencil",
+      "pepicons-pop",
+      "pepicons-print",
+      "ph",
+      "pixelarticons",
+      "prime",
+      "ps",
+      "quill",
+      "radix-icons",
+      "raphael",
+      "ri",
+      "rivet-icons",
+      "si-glyph",
+      "simple-icons",
+      "simple-line-icons",
+      "skill-icons",
+      "solar",
+      "streamline",
+      "streamline-emojis",
+      "subway",
+      "svg-spinners",
+      "system-uicons",
+      "tabler",
+      "tdesign",
+      "teenyicons",
+      "token",
+      "token-branded",
+      "topcoat",
+      "twemoji",
+      "typcn",
+      "uil",
+      "uim",
+      "uis",
+      "uit",
+      "uiw",
+      "unjs",
+      "vaadin",
+      "vs",
+      "vscode-icons",
+      "websymbol",
+      "weui",
+      "whh",
+      "wi",
+      "wpf",
+      "zmdi",
+      "zondicons"
+    ],
+    "fetchTimeout": 1500
+  },
+  "ui": {
+    "primary": "green",
+    "gray": "cool",
+    "colors": [
+      "red",
+      "orange",
+      "amber",
+      "yellow",
+      "lime",
+      "green",
+      "emerald",
+      "teal",
+      "cyan",
+      "sky",
+      "blue",
+      "indigo",
+      "violet",
+      "purple",
+      "fuchsia",
+      "pink",
+      "rose",
+      "primary"
+    ],
+    "strategy": "merge"
+  }
 };
 
 
@@ -655,7 +878,7 @@ function _expandFromEnv(value) {
 const _inlineRuntimeConfig = {
   "app": {
     "baseURL": "/",
-    "buildId": "9a21f73e-f039-4d21-8b41-53869321f54e",
+    "buildId": "43a50768-fbf2-4bb1-b791-9411298770cf",
     "buildAssetsDir": "/_nuxt/",
     "cdnURL": ""
   },
@@ -739,7 +962,7 @@ const _inlineRuntimeConfig = {
     "content": {
       "locales": [],
       "defaultLocale": "",
-      "integrity": 1758257989741,
+      "integrity": 1758258479499,
       "experimental": {
         "stripQueryParameters": false,
         "advanceQuery": false,
@@ -947,6 +1170,9 @@ const _inlineRuntimeConfig = {
       "advanceQuery": false,
       "search": ""
     }
+  },
+  "icon": {
+    "serverKnownCssClasses": []
   }
 };
 const envOptions = {
@@ -969,7 +1195,12 @@ function useRuntimeConfig(event) {
   event.context.nitro.runtimeConfig = runtimeConfig;
   return runtimeConfig;
 }
-_deepFreeze(klona(appConfig));
+const _sharedAppConfig = _deepFreeze(klona(appConfig));
+function useAppConfig(event) {
+  {
+    return _sharedAppConfig;
+  }
+}
 function _deepFreeze(object) {
   const propNames = Object.getOwnPropertyNames(object);
   for (const name of propNames) {
@@ -1242,8 +1473,16 @@ async function errorHandler(error, event) {
   // H3 will handle fallback
 }
 
+const script = "\"use strict\";(()=>{const t=window,e=document.documentElement,c=[\"dark\",\"light\"],n=getStorageValue(\"localStorage\",\"nuxt-color-mode\")||\"system\";let i=n===\"system\"?u():n;const r=e.getAttribute(\"data-color-mode-forced\");r&&(i=r),l(i),t[\"__NUXT_COLOR_MODE__\"]={preference:n,value:i,getColorScheme:u,addColorScheme:l,removeColorScheme:d};function l(o){const s=\"\"+o+\"\",a=\"\";e.classList?e.classList.add(s):e.className+=\" \"+s,a&&e.setAttribute(\"data-\"+a,o)}function d(o){const s=\"\"+o+\"\",a=\"\";e.classList?e.classList.remove(s):e.className=e.className.replace(new RegExp(s,\"g\"),\"\"),a&&e.removeAttribute(\"data-\"+a)}function f(o){return t.matchMedia(\"(prefers-color-scheme\"+o+\")\")}function u(){if(t.matchMedia&&f(\"\").media!==\"not all\"){for(const o of c)if(f(\":\"+o).matches)return o}return\"light\"}})();function getStorageValue(t,e){switch(t){case\"localStorage\":return window.localStorage.getItem(e);case\"sessionStorage\":return window.sessionStorage.getItem(e);case\"cookie\":return getCookie(e);default:return null}}function getCookie(t){const c=(\"; \"+window.document.cookie).split(\"; \"+t+\"=\");if(c.length===2)return c.pop()?.split(\";\").shift()}";
+
+const _XwwOE80rdAIkFDHMqJ2q3PtBc6HNrnHxh3bjA2STZik = (function(nitro) {
+  nitro.hooks.hook("render:html", (htmlContext) => {
+    htmlContext.head.push(`<script>${script}<\/script>`);
+  });
+});
+
 const plugins = [
-  
+  _XwwOE80rdAIkFDHMqJ2q3PtBc6HNrnHxh3bjA2STZik
 ];
 
 const assets = {};
@@ -1342,8 +1581,6 @@ const _8V0Y0K = eventHandler(async (event) => {
   const highlighter = await import('../build/mdc-highlighter.mjs').then((m) => m.default);
   return await highlighter(code, lang, theme, options);
 });
-
-const _SxA8c9 = defineEventHandler(() => {});
 
 function defineRenderHandler(render) {
   const runtimeConfig = useRuntimeConfig();
@@ -2147,6 +2384,63 @@ function contentHeading(body) {
   };
 }
 
+const collections = {
+  'heroicons': () => import('../_/icons.mjs').then(m => m.default),
+};
+
+const DEFAULT_ENDPOINT = "https://api.iconify.design";
+const _PRNPOe = defineCachedEventHandler(async (event) => {
+  const url = getRequestURL(event);
+  if (!url)
+    return createError({ status: 400, message: "Invalid icon request" });
+  const options = useAppConfig().icon;
+  const collectionName = event.context.params?.collection?.replace(/\.json$/, "");
+  const collection = collectionName ? await collections[collectionName]?.() : null;
+  const apiEndPoint = options.iconifyApiEndpoint || DEFAULT_ENDPOINT;
+  const icons = url.searchParams.get("icons")?.split(",");
+  if (collection) {
+    if (icons?.length) {
+      const data = getIcons(
+        collection,
+        icons
+      );
+      consola.debug(`[Icon] serving ${(icons || []).map((i) => "`" + collectionName + ":" + i + "`").join(",")} from bundled collection`);
+      return data;
+    }
+  }
+  if (options.fallbackToApi === true || options.fallbackToApi === "server-only") {
+    const apiUrl = new URL("./" + basename(url.pathname) + url.search, apiEndPoint);
+    consola.debug(`[Icon] fetching ${(icons || []).map((i) => "`" + collectionName + ":" + i + "`").join(",")} from iconify api`);
+    if (apiUrl.host !== new URL(apiEndPoint).host) {
+      return createError({ status: 400, message: "Invalid icon request" });
+    }
+    try {
+      const data = await $fetch(apiUrl.href);
+      return data;
+    } catch (e) {
+      consola.error(e);
+      if (e.status === 404)
+        return createError({ status: 404 });
+      else
+        return createError({ status: 500, message: "Failed to fetch fallback icon" });
+    }
+  }
+  return createError({ status: 404 });
+}, {
+  group: "nuxt",
+  name: "icon",
+  getKey(event) {
+    const collection = event.context.params?.collection?.replace(/\.json$/, "") || "unknown";
+    const icons = String(getQuery$1(event).icons || "");
+    return `${collection}_${icons.split(",")[0]}_${icons.length}_${hash$1(icons)}`;
+  },
+  swr: true,
+  maxAge: 60 * 60 * 24 * 7
+  // 1 week
+});
+
+const _SxA8c9 = defineEventHandler(() => {});
+
 const _KSPfsl = defineEventHandler(async (event) => {
   const { getContentQuery } = await import('../_/query.mjs');
   const { serverQueryContent } = await import('../_/storage.mjs').then(function (n) { return n.s; });
@@ -2250,11 +2544,12 @@ const _lazy_Qojjuh = () => import('../_/renderer.mjs').then(function (n) { retur
 const handlers = [
   { route: '', handler: _GUxOLJ, lazy: false, middleware: true, method: undefined },
   { route: '/api/_mdc/highlight', handler: _8V0Y0K, lazy: false, middleware: false, method: undefined },
+  { route: '/api/_nuxt_icon/:collection', handler: _PRNPOe, lazy: false, middleware: false, method: undefined },
   { route: '/__nuxt_island/**', handler: _SxA8c9, lazy: false, middleware: false, method: undefined },
   { route: '/api/_content/query/:qid/**:params', handler: _KSPfsl, lazy: false, middleware: false, method: "get" },
   { route: '/api/_content/query/:qid', handler: _KSPfsl, lazy: false, middleware: false, method: "get" },
   { route: '/api/_content/query', handler: _KSPfsl, lazy: false, middleware: false, method: "get" },
-  { route: '/api/_content/cache.1758257989741.json', handler: _HPqqW6, lazy: false, middleware: false, method: "get" },
+  { route: '/api/_content/cache.1758258479499.json', handler: _HPqqW6, lazy: false, middleware: false, method: "get" },
   { route: '/api/_content/navigation/:qid/**:params', handler: _lUs4ho, lazy: false, middleware: false, method: "get" },
   { route: '/api/_content/navigation/:qid', handler: _lUs4ho, lazy: false, middleware: false, method: "get" },
   { route: '/api/_content/navigation', handler: _lUs4ho, lazy: false, middleware: false, method: "get" },
