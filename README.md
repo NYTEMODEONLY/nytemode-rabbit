@@ -107,6 +107,48 @@ Professional QR code generation tool featuring:
 3. **Access the generator:**
    Open `http://localhost:8001` in your browser.
 
+### Deploying to Vercel (Multi-App Hosting)
+
+You can host all your R1 apps under a single Vercel project with individual paths like `nyterabbit.vercel.app/reaction-timer`:
+
+1. **Build all apps for deployment:**
+   ```bash
+   npm run build
+   ```
+
+2. **Deploy to Vercel:**
+   ```bash
+   # Install Vercel CLI if not already installed
+   npm install -g vercel
+
+   # Deploy (first time setup)
+   vercel
+
+   # Or link to existing project
+   vercel link
+   vercel --prod
+   ```
+
+3. **Your apps will be available at:**
+   - `https://your-domain.vercel.app/` - Documentation & app directory
+   - `https://your-domain.vercel.app/apps/reaction-timer` - Reaction Timer app
+   - `https://your-domain.vercel.app/apps/r1-reaction-timer-game` - Advanced Reaction Timer
+   - `https://your-domain.vercel.app/apps/plugin-demo` - Plugin Demo
+   - `https://your-domain.vercel.app/apps/qr-demo` - QR Demo
+
+4. **Generate updated QR codes:**
+   ```bash
+   # Update the QR generation script to point to your Vercel domain
+   # Edit utils/generate-r1-qr.js and change the URL to your Vercel domain
+   node utils/generate-r1-qr.js "reaction-timer" png
+   ```
+
+5. **Test locally before deploying:**
+   ```bash
+   npm run dev
+   # Opens local server at http://localhost:3000
+   ```
+
 ### Creating Your Own Apps
 
 1. **Use a template:**

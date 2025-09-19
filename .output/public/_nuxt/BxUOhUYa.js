@@ -1,0 +1,1 @@
+import o from"./DkSsrIqI.js";import{e,c as r,b as n,o as p}from"#entry";import"./CQq75FOs.js";import"./BaghWMWL.js";import"./BSZFgSs5.js";import"./B8IaAclc.js";import"./CzaBuU6x.js";import"./DyTBlu12.js";import"./BpsQzP03.js";const N={__name:"[...slug]",setup(c){const{$content:m}=e();return(s,a)=>{const t=o;return p(),r("div",null,[n(t)])}}};export{N as default};

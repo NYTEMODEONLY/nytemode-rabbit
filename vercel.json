@@ -1,0 +1,46 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "nuxt.config.ts",
+      "use": "@vercel/nuxt",
+      "config": {
+        "serverless": true
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/apps/reaction-timer/(.*)",
+      "dest": "/apps/reaction-timer/$1"
+    },
+    {
+      "src": "/apps/reaction-timer",
+      "dest": "/apps/reaction-timer/index.html"
+    },
+    {
+      "src": "/apps/r1-reaction-timer-game/(.*)",
+      "dest": "/apps/r1-reaction-timer-game/$1"
+    },
+    {
+      "src": "/apps/r1-reaction-timer-game",
+      "dest": "/apps/r1-reaction-timer-game/index.html"
+    },
+    {
+      "src": "/apps/plugin-demo/(.*)",
+      "dest": "/apps/plugin-demo/$1"
+    },
+    {
+      "src": "/apps/plugin-demo",
+      "dest": "/apps/plugin-demo/index.html"
+    },
+    {
+      "src": "/apps/qr-demo/(.*)",
+      "dest": "/apps/qr-demo/$1"
+    },
+    {
+      "src": "/apps/qr-demo",
+      "dest": "/apps/qr-demo/index.html"
+    }
+  ]
+}

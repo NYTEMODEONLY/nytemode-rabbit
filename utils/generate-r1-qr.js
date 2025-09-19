@@ -20,9 +20,9 @@ function generateR1Manifest(appName) {
     // This is the EXACT format that R1 devices expect (verified from working Rabbit Intern apps)
     const manifest = {
         title: title,
-        url: `https://nytemode-rabbit.vercel.app/apps/my-apps/${appPath}/`,
+        url: `https://nyterabbit.vercel.app/apps/${appPath}/`,
         description: `${title} - Test your reaction speed! Press PTT button as soon as screen turns green. Features millisecond precision timing and best time tracking.`,
-        iconUrl: `https://raw.githubusercontent.com/NYTEMODEONLY/nytemode-rabbit/main/apps/my-apps/${appPath}/icon.png`,
+        iconUrl: `https://nyterabbit.vercel.app/apps/${appPath}/icon.png`,
         themeColor: "#FFD700"
     };
 

@@ -1,0 +1,140 @@
+/* R1 Reaction Timer Styles - Optimized for 240x282px viewport */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: #ffffff;
+    height: 100vh;
+    overflow: hidden;
+    transition: background-color 0.1s ease;
+}
+
+/* Different states */
+body.waiting {
+    background-color: #8B0000; /* Dark red */
+}
+
+body.ready {
+    background-color: #006400; /* Dark green */
+}
+
+body.too-early {
+    background-color: #FF4500; /* Orange red */
+}
+
+#app {
+    width: 240px;
+    height: 282px;
+    padding: 20px;
+    border: 5px solid #333;
+    background-color: rgba(42, 42, 42, 0.9);
+    overflow: hidden;
+    transition: border-color 0.3s ease;
+}
+
+h1 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    text-align: center;
+    color: #00ff88;
+}
+
+#status {
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 15px;
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+#startBtn {
+    background-color: #00ff88;
+    color: #000;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 10px 0;
+    min-height: 48px; /* R1 touch target minimum */
+    width: 100%;
+    transition: all 0.2s ease;
+}
+
+#startBtn:hover {
+    background-color: #00cc66;
+    transform: scale(1.02);
+}
+
+#startBtn:active {
+    background-color: #009944;
+    transform: scale(0.98);
+}
+
+#startBtn:disabled {
+    background-color: #666;
+    cursor: not-allowed;
+    transform: none;
+}
+
+#timer {
+    text-align: center;
+    font-size: 48px;
+    font-weight: bold;
+    margin: 20px 0;
+    color: #FFD700;
+    font-family: 'Courier New', monospace;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+#bestTime {
+    text-align: center;
+    font-size: 14px;
+    margin: 10px 0;
+    color: #87CEEB;
+    font-weight: bold;
+}
+
+#instructions {
+    text-align: center;
+    font-size: 12px;
+    margin-top: 15px;
+    color: #ccc;
+    line-height: 1.4;
+    padding: 0 10px;
+}
+
+/* Reaction time result styling */
+.reaction-result {
+    animation: pulse 0.5s ease-in-out;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 240px) {
+    #app {
+        width: 100vw;
+        height: 100vh;
+    }
+
+    h1 {
+        font-size: 16px;
+    }
+
+    #timer {
+        font-size: 36px;
+    }
+}
